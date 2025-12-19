@@ -1,136 +1,281 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Infoglobonet | Consultoria Digital Empresarial</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Infoglobonet | Internet Empresarial de Alta Performance</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
-        }
+<style>
+:root {
+  --primary:#0a1f44;
+  --secondary:#00b4d8;
+  --accent:#25d366;
+  --dark:#000814;
+}
 
-        header {
-            background: #0a1f44;
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
 
-        header img {
-            max-width: 180px;
-            margin-bottom: 15px;
-        }
+html {
+  scroll-behavior:smooth;
+}
 
-        section {
-            padding: 50px 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
+body {
+  background:#f4f6f8;
+  color:#333;
+}
 
-        .sobre {
-            text-align: center;
-        }
+/* MENU FIXO */
+nav {
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(10,31,68,.95);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px 40px;
+  z-index:1000;
+}
 
-        .servicos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
+nav img {
+  height:45px;
+}
 
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
+nav ul {
+  list-style:none;
+  display:flex;
+  gap:30px;
+}
 
-        .card img {
-            width: 100%;
-            border-radius: 6px;
-            margin-bottom: 15px;
-        }
+nav ul li a {
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+}
 
-        .card h3 {
-            color: #0a1f44;
-        }
+/* HERO */
+header {
+  height:100vh;
+  background:linear-gradient(135deg,var(--primary),var(--dark));
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px;
+}
 
-        .whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25d366;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
+.hero {
+  max-width:800px;
+  animation:fadeUp 1.2s ease;
+}
 
-        footer {
-            background: #0a1f44;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-    </style>
+.hero h1 {
+  font-size:3rem;
+}
+
+.hero p {
+  margin:20px 0;
+  font-size:1.2rem;
+}
+
+.hero a {
+  background:var(--accent);
+  color:white;
+  padding:15px 35px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* SEÇÕES */
+section {
+  max-width:1200px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+h2 {
+  text-align:center;
+  color:var(--primary);
+  margin-bottom:20px;
+  font-size:2.2rem;
+}
+
+/* CARDS */
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  margin-top:40px;
+}
+
+.card {
+  background:white;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+  overflow:hidden;
+  opacity:0;
+  transform:translateY(40px);
+  transition:.6s;
+}
+
+.card.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.card div {
+  padding:25px;
+  text-align:center;
+}
+
+/* CTA */
+.cta {
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
+  text-align:center;
+  padding:80px 20px;
+}
+
+.cta a {
+  background:var(--accent);
+  color:white;
+  padding:15px 40px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:bold;
+  margin-top:20px;
+  display:inline-block;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:var(--accent);
+  color:white;
+  padding:16px 18px;
+  border-radius:50%;
+  font-size:22px;
+  text-decoration:none;
+  box-shadow:0 8px 20px rgba(0,0,0,.4);
+}
+
+/* FOOTER */
+footer {
+  background:var(--dark);
+  color:#aaa;
+  text-align:center;
+  padding:20px;
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(40px);}
+  to {opacity:1; transform:translateY(0);}
+}
+</style>
 </head>
+
 <body>
 
-<header>
-    <img src="assets/logo-infoglobonet.jpg" alt="Logo Infoglobonet">
-    <h1>Infoglobonet</h1>
-    <p>Consultoria Digital • Internet • Fibra Óptica • Wi-Fi Corporativo</p>
+<!-- MENU -->
+<nav>
+  <img src="assets/logo-infoglobonet.jpg" alt="Infoglobonet">
+  <ul>
+    <li><a href="#inicio">Início</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#beneficios">Benefícios</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header id="inicio">
+  <div class="hero">
+    <h1>Internet Empresarial que Impulsiona Resultados</h1>
+    <p>Fibra óptica, Wi-Fi corporativo e consultoria digital para empresas exigentes</p>
+    <a href="https://wa.me/55119630026" target="_blank">Solicitar Proposta</a>
+  </div>
 </header>
 
-<section class="sobre">
-    <h2>Sobre a Infoglobonet</h2>
-    <p>
-        Somos especialistas em soluções digitais e conectividade empresarial,
-        oferecendo internet por fibra óptica, redes Wi-Fi corporativas
-        e consultoria tecnológica.
-    </p>
-</section>
-
-<section>
-    <h2 style="text-align:center;">Nossos Serviços</h2>
-
-    <div class="servicos">
-        <div class="card">
-            <img src="assets/fibra-optica.jpg" alt="Fibra Óptica">
-            <h3>Fibra Óptica Empresarial</h3>
-            <p>Alta velocidade, estabilidade e segurança para empresas.</p>
-        </div>
-
-        <div class="card">
-            <img src="assets/wifi-empresarial.jpg" alt="Wi-Fi Corporativo">
-            <h3>Wi-Fi Corporativo</h3>
-            <p>Redes Wi-Fi inteligentes para ambientes corporativos.</p>
-        </div>
-
-        <div class="card">
-            <h3>Consultoria Digital</h3>
-            <p>Planejamento, implantação e suporte em tecnologia.</p>
-        </div>
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <h2>Soluções Infoglobonet</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="assets/fibra-optica.jpg">
+      <div>
+        <h3>Fibra Óptica Empresarial</h3>
+        <p>Alta velocidade, estabilidade e segurança total.</p>
+      </div>
     </div>
+
+    <div class="card">
+      <img src="assets/wifi-empresarial.jpg">
+      <div>
+        <h3>Wi-Fi Corporativo</h3>
+        <p>Cobertura inteligente para ambientes profissionais.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>Consultoria Digital</h3>
+        <p>Projetos sob medida para crescimento do seu negócio.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<a class="whatsapp" 
-   href="https://wa.me/55119630026" 
-   target="_blank">
-   💬 Fale no WhatsApp
-</a>
+<!-- BENEFÍCIOS -->
+<section id="beneficios">
+  <h2>Por que escolher a Infoglobonet?</h2>
+  <div class="cards">
+    <div class="card"><div><h3>Suporte Especializado</h3><p>Atendimento rápido e técnico.</p></div></div>
+    <div class="card"><div><h3>Alta Performance</h3><p>Internet estável mesmo em alta demanda.</p></div></div>
+    <div class="card"><div><h3>Foco Empresarial</h3><p>Soluções pensadas para negócios.</p></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contato">
+  <h2>Pronto para evoluir sua infraestrutura?</h2>
+  <p>Fale agora com um especialista</p>
+  <a href="https://wa.me/55119630026" target="_blank">Falar no WhatsApp</a>
+</section>
+
+<a class="whatsapp" href="https://wa.me/55119630026" target="_blank">💬</a>
 
 <footer>
-    <p>© 2025 Infoglobonet - Todos os direitos reservados</p>
+  <p>© 2025 Infoglobonet • Todos os direitos reservados</p>
 </footer>
+
+<script>
+const cards = document.querySelectorAll('.card');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+},{threshold:0.2});
+
+cards.forEach(card => observer.observe(card));
+</script>
 
 </body>
 </html>
